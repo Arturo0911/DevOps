@@ -74,3 +74,25 @@
     - setup: Gather facts about the target system.
     - ansible.builtin.stat: Retrieve information about a file.
     - ping: Test conectivity between Ansible and the target system.
+
+
+Ansible structure path
+
+```yml
+---
+- name: Execute a script on localhost
+  hosts: localhost
+  become: true
+  tasks:
+  - name: Ensure the script has execute permissions
+    file:
+      path: <path location file>
+      mode: u+x
+      state: file
+  - name: Testing this file  
+    shell: <set a bash command>
+
+
+  - name: Execute the script
+    command: <file to execute>
+```
